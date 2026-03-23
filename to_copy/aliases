@@ -2,7 +2,7 @@ alias refresh='source ~/.bashrc'
 alias bashrc='nano ~/.bashrc'
 alias ra='. ranger'
 alias cbt='catkin build --this'
-alias build_aerostack='cd /root/aerostack2_ws && colcon build'
+alias build_aerostack='cd /root/aerostack2_ws && colcon build --symlink-install --parallel-workers 3 --cmake-args -DCMAKE_BUILD_TYPE=Release'
 
 # allows killing process with all its children
 killp() {
