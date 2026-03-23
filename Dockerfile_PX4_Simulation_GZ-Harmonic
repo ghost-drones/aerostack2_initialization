@@ -79,7 +79,7 @@ RUN echo 'export GZ_SIM_RESOURCE_PATH=$GZ_SIM_RESOURCE_PATH:/root/sim/src/drone_
 
 # PX4
 WORKDIR /root/
-RUN --mount=type=ssh git clone -b release/1.14 git@github.com:PX4/PX4-Autopilot.git --recursive
+RUN --mount=type=ssh git clone -b release/1.16 git@github.com:PX4/PX4-Autopilot.git --recursive
 WORKDIR /root/PX4-Autopilot/
 
 # Upgrading the system
