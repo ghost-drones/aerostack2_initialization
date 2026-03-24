@@ -51,7 +51,7 @@ ARG HOME=/root
 
 RUN mkdir -p /root/aerostack2_ws/src/
 WORKDIR /root/aerostack2_ws/src/
-RUN --mount=type=ssh git clone git@github.com:ghost-drones/aerostack2.git -b main
+RUN --mount=type=ssh git clone -b release/1.16 git@github.com:PX4/PX4-Autopilot.git --recursive
 
 WORKDIR /root/aerostack2_ws
 RUN rosdep update
@@ -78,7 +78,7 @@ RUN sudo ldconfig /usr/local/lib/
 
 WORKDIR $HOME/px4_msgs/src/
 RUN --mount=type=ssh git clone -b release/1.16 git@github.com:PX4/px4_msgs.git
-RUN --mount=type=ssh git clone git@github.com:PX4/px4_ros_com.git
+RUN --mount=type=ssh git clone -b release/1.16 git@github.com:PX4/px4_ros_com.git
 WORKDIR $HOME/px4_msgs
 RUN rosdep install --from-paths src --ignore-src -r -y
 RUN . /opt/ros/$ROS_DISTRO/setup.sh && colcon build --symlink-install
@@ -89,7 +89,7 @@ RUN sudo apt-get install nano
 WORKDIR $HOME/aerostack2_ws/src/aerostack2/as2_aerial_platforms
 
 # PX4 Platform
-RUN --mount=type=ssh git clone git@github.com:ghost-drones/as2_platform_pixhawk.git
+RUN --mount=type=ssh git clone -b 1.16 git@github.com:ghost-drones/as2_platform_pixhawk.git
 
 # Customization (TMUX stuff)
 WORKDIR $HOME

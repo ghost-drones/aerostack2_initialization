@@ -104,7 +104,7 @@ RUN sudo ldconfig /usr/local/lib/
 
 WORKDIR $HOME/sim/src/
 RUN git clone -b release/1.16 https://github.com/PX4/px4_msgs.git
-RUN git clone https://github.com/PX4/px4_ros_com.git
+RUN git clone -b release/1.16 https://github.com/PX4/px4_ros_com.git
 WORKDIR $HOME/sim
 RUN rosdep install --from-paths src --ignore-src -r -y
 RUN . /opt/ros/$ROS_DISTRO/setup.sh && colcon build --symlink-install
@@ -133,6 +133,6 @@ WORKDIR /root/aerostack2_ws/
 WORKDIR $HOME/aerostack2_ws/src/aerostack2/as2_aerial_platforms
 
 # PX4 Platform (Custom)
-RUN --mount=type=ssh git clone git@github.com:ghost-drones/as2_platform_pixhawk.git
+RUN --mount=type=ssh git clone -b 1.16 git@github.com:ghost-drones/as2_platform_pixhawk.git
 
 CMD ["bash"]
