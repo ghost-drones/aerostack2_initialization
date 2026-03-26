@@ -138,7 +138,7 @@ echo "xhost +local:docker" >> ~/.bashrc
 1. Clone the repository:
 
 ```bash
-git clone git@github.com:ghost-drones/aerostack2_tutorial.git
+git clone git@github.com:ghost-drones/aerostack2_initialization.git
 ```
 
 2. Enable BuildKit:
